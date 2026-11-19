@@ -3,29 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f6f4ef">
-  <meta name="description" content="Портфолио Эмилии — QA Engineer: ручное и автоматизированное тестирование, разработка.">
+  <meta name="theme-color" content="#0d1117">
+  <meta name="description" content="Портфолио Эмилии — QA Engineer: ручное и автоматизированное тестирование, CI/CD, разработка.">
   <link rel="icon" type="image/png" href="img/icon.png">
   <title>Эмилия — QA Engineer | Портфолио</title>
   <link rel="stylesheet" href="css/root.css">
-  <link rel="stylesheet" href="css/dev.css">
-  <link rel="stylesheet" href="css/auto.css">
-  <link rel="stylesheet" href="css/stack.css">
   <link rel="stylesheet" href="css/portfolio.css">
+  <link rel="stylesheet" href="css/auto.css">
+  <link rel="stylesheet" href="css/dev.css">
+  <link rel="stylesheet" href="css/stack.css">
+  <link rel="stylesheet" href="css/contacts.css">
 </head>
 <body>
   <!-- Навигация по странице -->
   <nav class="top-nav" aria-label="Навигация по странице">
-    <a class="brand" href="#home">QA<span>♡</span></a>
+    <a class="brand" href="#home"><span class="brand-dot"></span>emilia<span class="brand-accent">.qa</span></a>
     <div class="nav-links">
       <a href="#home">Главная</a>
       <a href="#about">Обо мне</a>
+      <a href="#tester">Manual QA</a>
       <a href="#auto-tester">Автоматизация</a>
       <a href="#dev">Разработка</a>
-      <a href="#cases">Кейсы</a><a href="#stack">Стек</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#stack">Стек</a>
+      <a href="#game">Игра</a>
     </div>
-    <!-- Крестик, закреплённый в правом верхнем углу -->
-    <button id="exit-btn" class="exit-btn" aria-label="Закрыть">✕</button>
+    <div class="nav-actions">
+      <button id="nav-toggle" class="nav-toggle" aria-label="Меню" aria-expanded="false">☰</button>
+      <!-- Крестик, закреплённый в правом верхнем углу -->
+      <button id="exit-btn" class="exit-btn" aria-label="Закрыть">✕</button>
+    </div>
   </nav>
   
   <!-- Попап, открывающийся по крестику. Контент меняется на последней секции -->
@@ -41,7 +48,7 @@
         <p>Буду рада продолжить общение! 🙌</p>
       </div>
       <!-- Вариант, если нажать на "Да" -->
-      <div id="popup-sad" class="hidden" >
+      <div id="popup-sad" class="hidden">
         <img id="popupPicture" src="img/SAD_CAT.gif" alt="">
       </div>
       <button id="popup-close" class="popup-close">✕</button>
@@ -51,78 +58,93 @@
   <!-- Секция 1: начало -->
   <section class="page home" id="home">
     <div class="home-grid">
-        <div class="home-copy">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> QA ENGINEER · PORTFOLIO</div>
-          <h1>Привет! <br>Я <span class="highlight">Эмилия</span><span class="cursor">_</span></h1>
-          <p class="home-lead">Ищу баги, пишу код и задаю неудобные вопросы. Смотрю на качество продукта и глазами пользователя, и со стороны реализации.</p>
-          <div class="chips"><span class="chip">QA Engineer</span><span class="chip mint">Manual + Automation</span><span class="chip yellow">Developer background</span></div>
-          <div class="home-actions">
-            <button class="next-btn" data-next="#about">Познакомимся<span>?</span></button>
-            <a class="text-link" href="#stack">Мой стек технологий ↓</a>
-          </div>
-          <div class="home-meta"><span>⌘ аналитическое мышление</span><span>✳ внимание к деталям</span><span>♡ качество продукта</span></div>
+      <div class="home-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> QA ENGINEER · MANUAL &amp; AUTOMATION</div>
+        <h1>Привет! <br>Я <span class="highlight">Эмилия</span><span class="cursor">_</span></h1>
+        <p class="home-lead">Ищу баги, пишу автотесты и разбираюсь в коде изнутри. Смотрю на качество продукта глазами пользователя и со стороны архитектуры.</p>
+        <div class="chips">
+          <span class="chip">QA Engineer</span>
+          <span class="chip mint">UI &amp; API Automation</span>
+          <span class="chip yellow">C# / Kotlin / Java</span>
         </div>
-        <div class="desktop-card">
-          <div class="desktop-top"><span class="traffic"><b></b><b></b><b></b></span><span>qa-workspace.exe</span><span>•••</span></div>
-          <div class="desktop-screen">
-            <div class="desktop-date">MONDAY, 09:41 AM</div>
-            <div class="desktop-big">Hello,<br>world<span>!</span></div>
-            <div class="terminal">
-              <div><span class="term-green">➜</span> run portfolio.sh</div>
-              <div class="term-muted">Initializing QA mindset...</div>
-              <div><span class="term-green">✓</span> curiosity loaded</div>
-              <div><span class="term-green">✓</span> bugs detector online</div>
-              <div><span class="term-purple">✦</span> ready to explore<span class="blink">_</span></div>
-            </div>
-            <div class="desktop-icons"><span>📁<small>projects</small></span><span>🧪<small>tests</small></span><span>🗒️<small>notes</small></span></div>
-          </div>
-          <div class="floating-sticker sticker-star">✳</div>
-          <div class="floating-sticker sticker-bug">🐞</div>
-          <div class="status-note">100% curious <span>✦</span></div>
+        <div class="home-actions">
+          <button class="next-btn" data-next="#about">Познакомимся<span>→</span></button>
+          <a class="text-link" href="#stack">Стек технологий ↓</a>
         </div>
+        <div class="home-meta">
+          <span>[✓] системный анализ</span>
+          <span>[✓] внимание к деталям</span>
+          <span>[✓] инженерный подход</span>
+        </div>
+      </div>
+
+      <div class="desktop-card">
+        <div class="desktop-top">
+          <span class="traffic"><b></b><b></b><b></b></span>
+          <span>qa-pipeline.yml</span>
+          <span class="status-pill">PASSING</span>
+        </div>
+        <div class="desktop-screen">
+          <div class="desktop-date">BUILD #2026.11 · STAGING</div>
+          <div class="desktop-big">Zero<br>regressions<span>.</span></div>
+          <div class="terminal">
+            <div><span class="term-green">$</span> gradle test -Ptags=smoke</div>
+            <div class="term-muted">&gt; Running UI &amp; API suites in parallel...</div>
+            <div><span class="term-green">✓</span> API contract checks: 412/412 passed</div>
+            <div><span class="term-green">✓</span> E2E critical flows: 128/128 passed</div>
+            <div><span class="term-purple">→</span> Report ready for review<span class="blink">_</span></div>
+          </div>
+          <div class="desktop-icons">
+            <span>🧪<small>suites</small></span>
+            <span>⚡<small>ci/cd</small></span>
+            <span>🗄️<small>sql</small></span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Секция 2: о себе -->
   <section class="page about-section" id="about">
     <div class="content">
-
       <div class="bt-header">
         <div>
           <span class="head-eyebrow">01 / ABOUT</span>
           <h2>Кто <span>я</span>?</h2>
-          <p>Разбираюсь в продукте от кода до пользовательского сценария</p>
+          <p>Понимаю продукт от исходного кода до пользовательского сценария</p>
         </div>
       </div>
 
       <div class="grid2-about">
         <div class="about-photo-card">
           <div class="about-photo-frame">
-            <img src="img/real_me.jpg" alt="Портрет" class="about-photo" >
-            <div class="photo-sticker">QA MINDSET · ON ♡</div>
+            <img src="img/real_me.jpg" alt="Портрет Эмилии" class="about-photo">
+            <div class="photo-sticker">QA ENGINEER · DEV BACKGROUND</div>
           </div>
         </div>
+
         <div class="about-details">
-          <div class="note-label">ОБО МНЕ <span>● QA ENGINEER</span></div>
-          <p>Закончила СПбПУ по специальности "Прикладная информатика" и прошла различные курсы от JetBrains. 
-            Работала и разработчиком, и тестировщиком. Поэтому понимаю, как устроен процесс разработки, и умею смотреть на продукт не только со стороны пользовательских сценариев, но и со стороны реализации. 
-            </p>
+          <div class="note-label">ПРОФИЛЬ <span>● it's me!</span></div>
+          <p>Закончила СПбПУ по специальности «Прикладная информатика» и прошла профильные курсы от JetBrains. Работала и разработчиком, и тестировщиком — поэтому понимаю жизненный цикл фичи целиком и умею находить уязвимые места на стыке клиента, API и базы данных.</p>
+
           <div class="profile-facts">
-            <div><small>НАПРАВЛЕНИЕ</small><b>QA Engineer</b></div>
-            <div><small>ОБРАЗОВАНИЕ</small><b>Высшее техническое</b></div>
-            <div><small>ОПЫТ</small><b>Разработка и тестирование</b></div>
-            <div><small>ПОДХОД</small><b>Анализ и внимание к деталям</b></div>
+            <div><small>РОЛЬ</small><b>QA Engineer (Manual + Auto)</b></div>
+            <div><small>ОБРАЗОВАНИЕ</small><b>Высшее техническое, СПбПУ</b></div>
+            <div><small>БЭКГРАУНД</small><b>Коммерческая разработка на C#</b></div>
+            <div><small>ФОКУС-ПОКУС</small><b>Backend, API, БД</b></div>
           </div>
+
           <div class="note">
-            <p>Особенно интересуюсь тестированием backend: работой API, запросами и данными в базах. Также использую DevTools для анализа поведения приложения.</p>
+            <p>Люблю копать глубже интерфейса: проверять запросы и ответы API, сверять состояние данных в PostgreSQL и MongoDB, анализировать сетевой трафик через DevTools и Charles Proxy.</p>
           </div>
+
           <div class="chips">
             <span class="chip">внимательность</span>
             <span class="chip mint">аналитическое мышление</span>
             <span class="chip">системный подход</span>
             <span class="chip yellow">любознательность</span>
           </div>
-          <button class="next-btn mar-top-20" data-next="#tester">Мои задачи в QA ⬇</button>
+          <button class="next-btn mar-top-20" data-next="#tester">Задачи в QA ↓</button>
         </div>
       </div>
     </div>
@@ -131,50 +153,36 @@
   <!-- Секция 3: тестировщик -->
   <section class="page bug-tracker-section" id="tester">
     <div class="content bug-tracker">
-      <span class="stamp" style="top: 17%; right: 10%; font-size: 20px;">100% tested</span>     
-
-      <!-- Заголовок -->
       <div class="bt-header">
         <div>
           <span class="head-eyebrow">02 / MANUAL QA</span>
           <h2>Что я умею <span>тестировать</span></h2>
-          <p>Основные направления моей работы с качеством продукта</p>
+          <p>Полный цикл обеспечения качества: от анализа требований до проверки данных</p>
         </div>
-
-        <!-- <div class="bt-system-status">
+        <div class="bt-system-status">
           <span class="bt-status-dot"></span>
-          SYSTEM ONLINE
-        </div> -->
+          COVERAGE: 100%
+        </div>
       </div>
 
-      <!-- Доска -->
       <div class="bt-board">
-
-        <!-- TO DO -->
+        <!-- Колонка 1 -->
         <div class="bt-column todo-column">
           <div class="bt-column-heading">
-            <div>
-              <span>01 · TEST DESIGN</span>
-            </div>
+            <span>01 · TEST DESIGN</span>
             <span class="bt-column-count">02</span>
           </div>
 
           <article class="bt-ticket">
             <div class="bt-ticket-top">
               <span class="bt-ticket-id">QA-001 · ANALYSIS</span>
-              <!-- <span class="bt-ticket-menu">•••</span> -->
             </div>
-
             <h3>Анализ требований</h3>
-
-            <p>
-             Анализ требований, выявление неоднозначностей, определение тестовых условий, рисков, граничных и негативных сценариев.
-            </p>
-
+            <p>Выявление неоднозначностей и пробелов в спецификациях, определение тестовых условий, рисков, граничных и негативных сценариев.</p>
             <div class="bt-ticket-footer">
               <div class="bt-ticket-tags">
                 <span class="bt-type">Requirements</span>
-                <span class="bt-type">Test scenarios</span>
+                <span class="bt-type">Risk Analysis</span>
               </div>
             </div>
           </article>
@@ -183,44 +191,32 @@
             <div class="bt-ticket-top">
               <span class="bt-ticket-id">QA-014 · DESIGN</span>
             </div>
-
             <h3>Проектирование тестов</h3>
-
-            <p> 
-              Классы эквивалентности, анализ граничных значений, таблицы принятия решений, тестирование переходов состояний.
-            </p>
-
+            <p>Классы эквивалентности, анализ граничных значений, таблицы принятия решений и тестирование переходов состояний.</p>
             <div class="bt-ticket-footer">
               <div class="bt-ticket-tags">
-                <span class="bt-type">EP</span>
-                <span class="bt-type">BVA</span>
-                <span class="bt-type">Decision tables</span>
+                <span class="bt-type">EP &amp; BVA</span>
+                <span class="bt-type">Decision Tables</span>
+                <span class="bt-type">State Transition</span>
               </div>
             </div>
           </article>
         </div>
 
-        <!-- IN PROGRESS -->
+        <!-- Колонка 2 -->
         <div class="bt-column progress-column">
           <div class="bt-column-heading">
-            <div>
-              <span>02 · TEST EXECUTION</span>
-            </div>
+            <span>02 · EXECUTION &amp; API</span>
             <span class="bt-column-count">03</span>
           </div>
 
+          <!--
           <article class="bt-ticket">
             <div class="bt-ticket-top">
               <span class="bt-ticket-id">QA-021 · EXPLORATION</span>
             </div>
-
             <h3>Тестирование и дефекты</h3>
-
-            <p>
-              Функциональное, регрессионное и исследовательское тестирование; 
-              поиск, анализ и документирование дефектов.
-            </p>
-
+            <p>Функциональное, регрессионное и исследовательское тестирование; локализация причин и чёткое документирование багов.</p>
             <div class="bt-ticket-footer">
               <div class="bt-ticket-tags">
                 <span class="bt-type">Functional</span>
@@ -229,19 +225,14 @@
               </div>
             </div>
           </article>
+        -->
 
           <article class="bt-ticket">
             <div class="bt-ticket-top">
-              <span class="bt-ticket-id">QA-037· API & CLIENT</span>
+              <span class="bt-ticket-id">QA-037 · API &amp; CLIENT</span>
             </div>
-
             <h3>Тестирование API и клиента</h3>
-
-            <p>
-              REST API через Postman и Swagger; 
-              проверка клиент-серверного взаимодействия и анализ через DevTools.
-            </p>
-
+            <p>Проверка REST API через Postman и Swagger; анализ сетевых запросов, кэша и клиент-серверной логики в DevTools и Charles.</p>
             <div class="bt-ticket-footer">
               <div class="bt-ticket-tags">
                 <span class="bt-type">Postman</span>
@@ -255,29 +246,22 @@
             <div class="bt-ticket-top">
               <span class="bt-ticket-id">QA-039 · AUTOMATION</span>
             </div>
-
-            <h3>Автоматизация тестирования</h3>
-
-            <p>
-              Разработка и поддержка автотестов, проверка пользовательских сценариев, анализ результатов прогонов и поиск причин падения тестов.
-            </p>
-
+            <h3>Поддержка автотестов</h3>
+            <p>Запуск и анализ прогонов, диагностика причин падения тестов, актуализация тестовых сценариев при изменении продукта.</p>
             <div class="bt-ticket-footer">
               <div class="bt-ticket-tags">
-                <span class="bt-type">Test Automation</span>
                 <span class="bt-type">UI Tests</span>
                 <span class="bt-type">API Tests</span>
+                <span class="bt-type">Allure</span>
               </div>
             </div>
           </article>
         </div>
 
-        <!-- DONE -->
+        <!-- Колонка 3 -->
         <div class="bt-column done-column">
           <div class="bt-column-heading">
-            <div>
-              <span>03 · DATA & DEBUG</span>
-            </div>
+            <span>03 · DATA &amp; TOOLING</span>
             <span class="bt-column-count">02</span>
           </div>
 
@@ -285,18 +269,13 @@
             <div class="bt-ticket-top">
               <span class="bt-ticket-id">QA-046 · DATABASE</span>
             </div>
-
             <h3>Проверка данных</h3>
-
-            <p>
-              SQL- и NoSQL-проверки: поиск несоответствий, контроль корректности сохранения и изменения записей.
-            </p>
-
+            <p>SQL- и NoSQL-запросы: контроль консистентности данных, проверка транзакций и корректности сохранения записей.</p>
             <div class="bt-ticket-footer">
               <div class="bt-ticket-tags">
-                <span class="bt-type">SQL</span>
                 <span class="bt-type">PostgreSQL</span>
                 <span class="bt-type">MongoDB</span>
+                <span class="bt-type">SQL</span>
               </div>
             </div>
           </article>
@@ -305,13 +284,8 @@
             <div class="bt-ticket-top">
               <span class="bt-ticket-id">QA-055 · TOOLING</span>
             </div>
-
             <h3>Скрипты и интеграции</h3>
-
-            <p>
-              Вспомогательные скрипты для ручного тестирования и работа с Google Sheets API.
-            </p>
-
+            <p>Вспомогательные скрипты для генерации тестовых данных и автоматизация рутинных проверок через Google Sheets API.</p>
             <div class="bt-ticket-footer">
               <div class="bt-ticket-tags">
                 <span class="bt-type">Scripting</span>
@@ -320,46 +294,46 @@
             </div>
           </article>
         </div>
-
       </div>
-
     </div>
-    <button class="next-btn mar-top-20" data-next="#auto-tester">Автоматизация ⬇</button>
+    <button class="next-btn" data-next="#auto-tester">Автоматизация ↓</button>
   </section>
 
   <!-- Секция 4: авто-тестировщик -->
   <section class="page automation-section" id="auto-tester">
     <div class="content">
-      <!-- Заголовок -->
-      <div class="bt-header" style="text-align: left;">
+      <div class="bt-header">
         <div>
           <span class="head-eyebrow">03 / AUTOMATION QA</span>
           <h2><span>Автоматизация</span> тестирования</h2>
-          <p>Инструменты и подходы, которые использую для автоматизации проверок</p>
+          <p>Модульная архитектура тестов, раздельные прогоны UI/API и интеграция в CI/CD</p>
         </div>
-
         <div class="bt-system-status">
           <span class="bt-status-dot"></span>
-          SYSTEM ONLINE
+          CI/CD READY
         </div>
       </div>
 
       <div class="grid2">
         <div class="report-part">
           <div class="report-window">
-            <div class="window-bar"><span class="traffic"><b></b><b></b><b></b></span><span>test-run-report.html</span><span class="window-badge">MAIN REPORT</span></div>
+            <div class="window-bar">
+              <span class="traffic"><b></b><b></b><b></b></span>
+              <span>allure-report · #RUN-2026</span>
+              <span class="window-badge">99.6% PASS</span>
+            </div>
             <div class="report-content">
-              <div class="report-title-row" style="text-align: left;">
+              <div class="report-title-row">
                 <div>
                   <small>РЕЗУЛЬТАТЫ ПРОГОНА</small>
-                  <h3>Отчёт автотестов</h3>
+                  <h3>Отчёт по автотестам</h3>
                 </div>
-                <span class="run-id">#RUN-2026</span>
+                <span class="run-id">TAGS: @smoke, @api, @ui</span>
               </div>
               <div class="test-stats">
                 <div class="test-stat">
                   <strong>500+</strong>
-                  <span>Тестов</span>
+                  <span>Всего тестов</span>
                 </div>
                 <div class="test-stat">
                   <strong>400+</strong>
@@ -375,60 +349,88 @@
                 </div>
               </div>
               <div class="suite-list">
-                <div class="suite-row"><span class="suite-icon">⌁</span><div><b>Authentication</b><small>Login, logout, password reset</small></div><span class="suite-result good">12 / 12</span></div>
-                <div class="suite-row"><span class="suite-icon">▦</span><div><b>API checks</b><small>Users, orders, permissions</small></div><span class="suite-result warning">18 / 20</span></div>
-                <div class="suite-row"><span class="suite-icon">◈</span><div><b>UI regression</b><small>Critical user journeys</small></div><span class="suite-result good">20 / 20</span></div>
+                <div class="suite-row">
+                  <span class="suite-icon">⌁</span>
+                  <div><b>Smoke Suite (@smoke)</b><small>Быстрая проверка критических сценариев при коммите</small></div>
+                  <span class="suite-result good">24 / 24</span>
+                </div>
+                <div class="suite-row">
+                  <span class="suite-icon">▦</span>
+                  <div><b>API Integration (@api)</b><small>Rest Assured · Контракты, статусы, права доступа</small></div>
+                  <span class="suite-result good">412 / 412</span>
+                </div>
+                <div class="suite-row">
+                  <span class="suite-icon">◈</span>
+                  <div><b>UI E2E Regression (@ui)</b><small>Playwright &amp; Selenium · Page Object Model</small></div>
+                  <span class="suite-result warning">126 / 128</span>
+                </div>
               </div>
-              <div class="report-footer"><span>Environment: staging · Browser: Chromium</span><span>Duration: 02m 48s</span></div>
+              <div class="report-footer">
+                <span>Pipeline: GitLab CI / GitHub Actions</span>
+                <span>Duration: 02m 14s</span>
+              </div>
             </div>
           </div>
         </div>
         
         <div class="auto-about">
           <div class="card">
-            <div class="micro">НАПРАВЛЕНИЯ АВТОМАТИЗАЦИИ</div>
-            <h3>UI-автоматизация</h3><p>Разрабатываю и поддерживаю E2E-автотесты пользовательских сценариев с использованием Playwright и Selenium.</p><div class="chips"><span class="chip">Playwright</span><span class="chip">TypeScript / JavaScript</span><span class="chip">Selenium</span></div>
-            <h3 style="margin-top:22px">API-автоматизация</h3><p>Пишу API-автотесты на Rest Assured, проверяю ответы сервисов и корректность взаимодействия между ними.</p><div class="chips"><span class="chip mint">Rest Assured</span><span class="chip mint">REST API</span></div>
-            <h3 style="margin-top:22px">CI/CD</h3><p>Интегрирую запуск автоматизированных проверок в GitLab CI и GitHub Actions.</p><div class="chips"><span class="chip yellow">GitLab CI</span><span class="chip yellow">GitHub Actions</span><span class="chip yellow">Allure</span></div>
+            <div class="micro">АРХИТЕКТУРА И ИНСТРУМЕНТЫ</div>
+            <h3>UI-автоматизация</h3>
+            <p>Строю поддерживаемые E2E-тесты на базе Page Object Model с использованием Playwright и Selenium WebDriver.</p>
+            <div class="chips">
+              <span class="chip">Playwright</span>
+              <span class="chip">Selenium WebDriver</span>
+              <span class="chip">TypeScript / Kotlin / Java</span>
+            </div>
+
+            <h3>API-автоматизация</h3>
+            <p>Автоматизирую проверку REST-сервисов через Rest Assured: валидация схем, бизнес-логики и цепочек запросов.</p>
+            <div class="chips">
+              <span class="chip mint">Rest Assured</span>
+              <span class="chip mint">REST API</span>
+              <span class="chip mint">Gradle</span>
+            </div>
+
+            <h3>CI/CD и тегирование</h3>
+            <p>Настраиваю независимый запуск UI- и API-наборов, а также быстрые smoke-прогоны по тегам в GitLab CI и GitHub Actions.</p>
+            <div class="chips">
+              <span class="chip yellow">GitLab CI</span>
+              <span class="chip yellow">GitHub Actions</span>
+              <span class="chip yellow">Allure</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <button class="next-btn mar-top-20" data-next="#dev">Опыт разработки ⬇</button>
+    <button class="next-btn" data-next="#dev">Опыт разработки ↓</button>
   </section>
 
   <!-- Секция 5: программист|кодинг -->
   <section class="page coding-section" id="dev">
     <div class="content">
-
-      <div class="bt-header" style="text-align: left;">
+      <div class="bt-header">
         <div>
           <span class="head-eyebrow">04 / DEVELOPMENT BACKGROUND</span>
           <h2>Опыт <span>разработки</span></h2>
         </div>
-
         <div class="bt-system-status">
           <span class="bt-status-dot"></span>
-          Developer mode
+          DEVELOPER MODE
         </div>
       </div>
 
       <div class="grid2">
-
         <div class="v2-intro">
-          <div class="sticker float">Behind the code ✨</div>
-
-          <h3>Знаю, как выглядит качество не только со стороны тестирования.</h3>
-
+          <div class="sticker float">Behind the code</div>
+          <h3>Знаю, как устроено качество внутри самого кода.</h3>
           <p class="description">
-            Работала над расчётной библиотекой для нефтеперерабатывающей
-            отрасли. Этот опыт помогает лучше понимать внутреннюю логику
-            продукта, структуру кода и важность надёжных решений.
+            Разрабатывала расчётную библиотеку для нефтеперерабатывающей отрасли. Этот опыт помогает читать исходники проекта, понимать архитектуру сервисов и точнее находить первопричину дефектов.
           </p>
 
           <div class="big-csharp">
-            <strong>C#</strong>
-            <span>MY DEVELOPMENT BACKGROUND</span>
+            <strong>C# / .NET</strong>
+            <span>PRODUCTION DEVELOPMENT BACKGROUND</span>
             <div class="decoration">{ }</div>
           </div>
 
@@ -436,83 +438,212 @@
             <span class="chip">.NET</span>
             <span class="chip">OOP</span>
             <span class="chip">Unit Testing</span>
+            <span class="chip">REST &amp; Sockets</span>
           </div>
         </div>
 
         <div class="v2-cards">
-
           <div class="skill-card">
             <span class="emoji">💻</span>
-            <div><strong>Development</strong><br><small>Новые компоненты и функциональность.</small></div>
+            <div><strong>Development</strong><small>Реализация бизнес-логики и новых модулей.</small></div>
           </div>
-
           <div class="skill-card">
             <span class="emoji">🧪</span>
-            <div><strong>Unit Testing</strong><br><small>Проверка корректности логики.</small></div>
+            <div><strong>Unit Testing</strong><small>Покрытие критических расчётов модульными тестами.</small></div>
           </div>
-
           <div class="skill-card">
             <span class="emoji">👀</span>
-            <div><strong>Code Review</strong><br><small>Обсуждение и анализ решений.</small></div>
+            <div><strong>Code Review</strong><small>Анализ архитектуры и поиск потенциальных багов до релиза.</small></div>
           </div>
-
           <div class="skill-card">
             <span class="emoji">🛠️</span>
-            <div><strong>Refactoring</strong><br><small>Улучшение структуры кода.</small></div>
+            <div><strong>Refactoring</strong><small>Упрощение сложной логики и повышение читаемости кода.</small></div>
           </div>
-
           <div class="skill-card">
             <span class="emoji">🔍</span>
-            <div><strong>Debugging</strong><br><small>Поиск причин ошибок.</small></div>
+            <div><strong>Debugging</strong><small>Трассировка выполнения и локализация причин сбоев.</small></div>
           </div>
-
           <div class="skill-card">
             <span class="emoji">🧩</span>
-            <div><strong>Code reading</strong><br><small>Работа с существующим кодом.</small></div>
+            <div><strong>Code Reading</strong><small>Быстрое погружение в чужую кодовую базу.</small></div>
           </div>
-
         </div>
       </div>
     </div>
-    <button class="next-btn section-next" data-next="#stack">Инструменты и технологии <span aria-hidden="true">↓</span></button>
+    <button class="next-btn" data-next="#cases">Практика и кейсы ↓</button>
   </section>
 
   <!-- Секция 6: опыт -->
   <section class="page cases-section" id="cases">
     <div class="content cases-content">
-      <div class="section-heading"><span class="head-eyebrow">06 / SELECTED CASES</span><h2>Практика в <span>деле</span></h2><p>Три направления опыта — от ручного исследования продукта до кода и автоматизации.</p></div>
+      <div class="section-heading">
+        <span class="head-eyebrow">05 / SELECTED CASES</span>
+        <h2>Практика в <span>деле</span></h2>
+        <p>Три ключевых направления работы — от исследовательского тестирования до автоматизации пайплайнов.</p>
+      </div>
+
       <div class="cases-grid">
-        <article class="case-card case-manual"><div class="case-top"><span class="case-number">CASE 01</span><span class="case-icon">⌕</span></div><span class="case-kicker">MANUAL QA</span><h3>Исследование сложного пользовательского сценария</h3><p>Разбор требований и проверка ключевых пользовательских потоков: позитивные, негативные и граничные сценарии, анализ состояний и поиск неоднозначностей.</p><div class="case-tags"><span>Test design</span><span>Exploratory</span><span>Bug reports</span></div><div class="case-outcome"><b>Фокус</b><span>Найти риски до того, как с ними столкнётся пользователь.</span></div></article>
-        <article class="case-card case-auto"><div class="case-top"><span class="case-number">CASE 02</span><span class="case-icon">⌘</span></div><span class="case-kicker">AUTOMATION QA</span><h3>Автоматизация API и UI проверок</h3><p>Пример подхода к построению набора автотестов: подготовка тестовых данных, проверки ответов API, критические UI-сценарии и понятные результаты прогона.</p><div class="case-tags"><span>API</span><span>UI tests</span><span>Regression</span></div><div class="case-outcome"><b>Фокус</b><span>Быстрая обратная связь и повторяемые проверки.</span></div></article>
-        <article class="case-card case-dev"><div class="case-top"><span class="case-number">CASE 03</span><span class="case-icon">{ }</span></div><span class="case-kicker">DEVELOPMENT</span><h3>Разработка и понимание системы изнутри</h3><p>Опыт работы с прикладной логикой и данными помогает читать код, понимать связи между компонентами и точнее локализовать причины дефектов.</p><div class="case-tags"><span>C#</span><span>SQL</span><span>Debugging</span></div><div class="case-outcome"><b>Фокус</b><span>Связать поведение интерфейса с реализацией и данными.</span></div></article>
+        <article class="case-card case-manual">
+          <div class="case-top">
+            <span class="case-number">CASE 01</span>
+            <span class="case-icon">⌕</span>
+          </div>
+          <span class="case-kicker">MANUAL &amp; BACKEND QA</span>
+          <h3>Поддержка документации</h3>
+          <p>Когда пришла на проект, уже существовала система прохождения квизов, к которой не было документации. Самостоятельно подготовила документацию по API-запросам и работе с базой данных, а также выявила проблемы при одновременном прохождении квизов с разных устройств. </p>
+          <div class="case-tags">
+            <span>Test Design</span>
+            <span>Postman</span>
+            <span>PostgreSQL</span>
+          </div>
+          <div class="case-outcome">
+            <b>Результат</b>
+            <span>Создание документации уже к существующей архитектуре</span>
+          </div>
+        </article>
+
+        <article class="case-card case-auto">
+          <div class="case-top">
+            <span class="case-number">CASE 02</span>
+            <span class="case-icon">⌘</span>
+          </div>
+          <span class="case-kicker">AUTOMATION &amp; CI/CD</span>
+          <h3>Создание автотестов с нуля</h3>
+          <p>Единолично создала и подерживала несколько месяцев автотесты по API на Playwright. Сама разворачивала проект в GitLab CI/CD и настраивала джобы.</p>
+          <div class="case-tags">
+            <span>Playwright</span>
+            <!--<span>GitHub Actions</span> -->
+            <span>GitLab CI</span>
+          </div>
+          <div class="case-outcome">
+            <b>Результат</b>
+            <span>Развернутый проект по тетсированию на GitLab.</span>
+          </div>
+        </article>
+
+        <article class="case-card case-dev">
+          <div class="case-top">
+            <span class="case-number">CASE 03</span>
+            <span class="case-icon">{ }</span>
+          </div>
+          <span class="case-kicker">DEVELOPMENT</span>
+          <h3>Расчётная библиотека и скрипты</h3>
+          <p>Писала скрипты, которые помогали свярять данные с Excel и самой библиотеки.</p>
+          <div class="case-tags">
+            <span>C#</span>
+            <span>Spring</span>
+            <span>Debugging</span>
+          </div>
+          <div class="case-outcome">
+            <b>Результат</b>
+            <span>Демонстрация работы новых фич библиотеки.</span>
+          </div>
+        </article>
       </div>
     </div>
-    <button class="next-btn" data-next="#stack">К инструментам и технологиям ↓</button>
+    <button class="next-btn" data-next="#stack">Инструменты и стек ↓</button>
   </section>
 
   <!-- Секция 7: стек -->
   <section class="page" id="stack">
     <div class="content">
-      <div class="sectionhead"><div><div class="eyebrow">TECH STACK</div><h2>Инструменты и технологии</h2></div><p>Технологии и инструменты, с которыми я работала в разработке и тестировании.</p></div>
+      <div class="sectionhead">
+        <div>
+          <div class="eyebrow">06 / TECH STACK</div>
+          <h2>Инструменты и <span>технологии</span></h2>
+        </div>
+        <p>Технологический стек, который применяю в ручном тестировании, автоматизации и разработке.</p>
+      </div>
+
       <div class="toolbox">
         <div class="grid3">
-          <div class="tool"><div class="toolicon">🧪</div><h3>Тестирование и автоматизация</h3><p>UI-, API- и автоматизированные проверки</p><div class="chips"><span class="chip">Playwright</span><span class="chip">Rest Assured</span><span class="chip">Selenium</span></div></div>
-          <div class="tool"><div class="toolicon">⌨️</div><h3>Языки программирования</h3><p>Языки, используемые в разработке и тестах</p><div class="chips"><span class="chip">C#</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">Java</span><span class="chip">Kotlin</span><span class="chip">Go</span><span class="chip">Python</span></div></div>
-          <div class="tool"><div class="toolicon">🌐</div><h3>API и веб-инструменты</h3><p>Работа с запросами и диагностика в браузере</p><div class="chips"><span class="chip">Postman</span><span class="chip">Swagger</span><span class="chip">DevTools</span><span class="chip">Charles Proxy</span></div></div>
-          <div class="tool"><div class="toolicon">🗄️</div><h3>Базы данных</h3><p>Запросы, проверка и анализ данных</p><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">SQL</span></div></div>
-          <div class="tool"><div class="toolicon">⚙️</div><h3>Рабочие процессы и CI/CD</h3><p>Контроль версий и автоматизация запусков</p><div class="chips"><span class="chip">Git</span><span class="chip">GitLab CI</span><span class="chip">GitHub Actions</span><span class="chip">YouTrack</span></div></div>
-          <div class="tool"><div class="toolicon">✨</div><h3>Дополнительные инструменты</h3><p>Среды разработки и вспомогательные сервисы</p><div class="chips"><span class="chip">Android Studio</span><span class="chip">Google Sheets API</span><span class="chip">AI tools</span></div></div>
+          <div class="tool">
+            <div class="toolicon">🧪</div>
+            <h3>Тестирование и автоматизация</h3>
+            <p>E2E, UI- и API-автотесты</p>
+            <div class="chips">
+              <span class="chip">Playwright</span>
+              <span class="chip">Rest Assured</span>
+              <span class="chip">Selenium WebDriver</span>
+            </div>
+          </div>
+
+          <div class="tool">
+            <div class="toolicon">⌨️</div>
+            <h3>Языки программирования</h3>
+            <p>Разработка, скрипты и автотесты</p>
+            <div class="chips">
+              <span class="chip">C#</span>
+              <span class="chip">Kotlin</span>
+              <span class="chip">Java</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">Python</span>
+              <span class="chip">Go</span>
+            </div>
+          </div>
+
+          <div class="tool">
+            <div class="toolicon">🌐</div>
+            <h3>API и диагностика</h3>
+            <p>Инспекция трафика и контрактов</p>
+            <div class="chips">
+              <span class="chip">Postman</span>
+              <span class="chip">Swagger</span>
+              <span class="chip">DevTools</span>
+              <span class="chip">Charles Proxy</span>
+            </div>
+          </div>
+
+          <div class="tool">
+            <div class="toolicon">🗄️</div>
+            <h3>Базы данных</h3>
+            <p>Запросы и проверка консистентности</p>
+            <div class="chips">
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">MongoDB</span>
+              <span class="chip">SQL</span>
+            </div>
+          </div>
+
+          <div class="tool">
+            <div class="toolicon">⚙️</div>
+            <h3>Сборка и CI/CD</h3>
+            <p>Автоматизация запусков и отчётность</p>
+            <div class="chips">
+              <span class="chip">Gradle</span>
+              <span class="chip">GitLab CI</span>
+              <span class="chip">GitHub Actions</span>
+              <span class="chip">Allure</span>
+              <span class="chip">Git</span>
+            </div>
+          </div>
+
+          <div class="tool">
+            <div class="toolicon">✨</div>
+            <h3>Среды и интеграции</h3>
+            <p>Инструменты повседневной работы</p>
+            <div class="chips">
+              <span class="chip">Spring</span>
+              <span class="chip">YouTrack</span>
+              <span class="chip">Android Studio</span>
+              <span class="chip">Google Sheets API</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <button class="next-btn section-next" data-next="#game">Небольшой эксперимент <span aria-hidden="true">↓</span></button>
+    <button class="next-btn" data-next="#game">Мини-игра ↓</button>
   </section>
 
-  <!-- Секция 8: игра -->
+  <!-- Секция 8: игра (полностью сохранена) -->
   <section class="page" id="game">
     <div class="content">
-      <h2>🎮 Технические эксперименты</h2>
-      <p>Мне интересны нестандартные задачи и небольшие интерактивные проекты. Эта мини-игра — пример работы с логикой, SVG и JavaScript.</p>
+      <span class="head-eyebrow">07 / INTERACTIVE LOGIC</span>
+      <h2>Технические <span>эксперименты</span></h2>
+      <p>Небольшая игра на js:) 
+        <br>
+        Нажми на любую стрелочку: если путь свободен, она улетит с поля.</p>
       <div class="board-wrap">
         <svg id="board" viewBox="0 0 600 600" role="group" aria-label="Игровое поле 6 на 6"></svg>
       </div>
@@ -522,11 +653,13 @@
       </div>
       <div id="message" aria-live="polite">Нажми на стрелку. Если её путь свободен, она улетит.</div>
       <p class="hint">Наконечник показывает направление. При выезде головка уходит первой, а тело следует за ней, как у змейки.</p>
-      <button class="next-btn" data-next="#contacts">Далее ⬇</button>
     </div>
+    <button class="next-btn" data-next="#contacts">Контакты ↓</button>
   </section>
 
-  <!-- Секция 9: контакты (последняя) -->
+  
+  <!-- Секция 9: первые контакты (не тронута по структуре и ID) -->
+  <!--
   <section class="page quick-contacts" id="quick-contacts">
     <div class="content">
       <h2>🤝 Контакты</h2>
@@ -538,25 +671,45 @@
       </ul>
       <p>Открыта к интересным проектам, новым знакомствам и профессиональным вызовам!</p>
     </div>
+    <button class="next-btn" data-next="#contacts">Связаться ↓</button>
   </section>
+-->
 
-  <section class="section" id="contacts">
-  <div class="contact-panel"><div class="eyebrow contact-eyebrow">09 / LET'S CONNECT</div><h2>Found a bug?<br>Or a great opportunity?</h2><h3 class="contact-subtitle">Let's connect! ♡</h3>
-  <p>Буду рада новым знакомствам, интересным проектам и возможности стать частью команды, которой важно качество продукта.</p>
-  <div class="contactgrid">
-  <a class="contact" id="contact-email" href="#"><span>✉️ <b>Email</b><small>melnikova.emiliya.prog@gmail.com</small></span><span>↗</span></a>
-  <a class="contact" id="contact-telegram" href="#"><span>➤ <b>Telegram</b><small>@milka_plazma</small></span><span>↗</span></a>
-  <a class="contact" id="contact-github" href="#"><span>⌘ <b>GitHub</b><small>BinaryToucan</small></span><span>↗</span></a>
-  <a class="contact" id="contact-resume" href="#"><span>📄 <b>Resume / HH</b><small>Добавить ссылку на резюме</small></span><span>↗</span></a>
-  </div>
-  <p class="contact-actions"><a class="btn" href="#about">Мой профиль ↓</a><a class="btn ghost" href="#home">В начало ↑</a></p>
-  </div>
+  <!-- Секция 10: финальная карточка контактов -->
+  <section class="section final-contacts-section" id="contacts">
+    <div class="contact-panel">
+      <div class="eyebrow contact-eyebrow">09 / LET'S CONNECT</div>
+      <h2>Found a bug?<br>Or a <span>great opportunity</span>?</h2>
+      <h3 class="contact-subtitle">Давайте пообщаемся!</h3>
+      <p>Буду рада новым знакомствам, интересным задачам по тестированию и автоматизации, а также возможности усилить вашу команду.</p>
+      <div class="contactgrid">
+        <a class="contact" id="contact-email" href="mailto:melnikova.emiliya.prog@gmail.com">
+          <span>✉️ <b>Email</b><small></small></span>
+          <span>↗</span>
+        </a>
+        <a class="contact" id="contact-telegram" href="https://t.me/milka_plazma" target="_blank" rel="noopener">
+          <span>➤ <b>Telegram</b><small>@milka_plazma</small></span>
+          <span>↗</span>
+        </a>
+        <a class="contact" id="contact-github" href="#" target="_blank" rel="noopener">
+          <span>⌘ <b>GitHub</b><small></small></span>
+          <span>↗</span>
+        </a>
+        <a class="contact" id="contact-resume" href="#">
+          <span>📄 <b>Resume / HH</b><small></small></span>
+          <span>↗</span>
+        </a>
+      </div>
+      <div class="contact-actions">
+        <a class="btn" href="#about">Мой профиль ↑</a>
+        <a class="btn ghost" href="#home">В самое начало ↑</a>
+      </div>
+    </div>
   </section>
-
 
   <!-- Фиксированный футер с телеграмом (скрывается на последней секции) -->
   <footer id="tg-link-footer" class="tg-link-footer">
-    <p>На связи: </p>
+    <p>На связи:</p>
     <a class="tg-link" href="#" target="_blank" rel="noopener"></a>
   </footer>
 

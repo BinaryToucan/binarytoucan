@@ -5,6 +5,8 @@ const CONFIG = {
   github: 'https://github.com/BinaryToucan',  // ссылка на гитхаб
   githubName: 'BinaryToucan',
   email: 'melnikova.emiliya.prog@gmail.com',
+  realMe: 'Мельникова Эмилия',
+  hh: 'https://spb.hh.ru/resume/6c84c50fff0bff0de50039ed1f4f71626c5649'
 };
 
 // ========== Ссылки в футере и на последней секции ==========
@@ -12,9 +14,15 @@ document.getElementById('tg-link-footer').querySelector('a').textContent = CONFI
 document.querySelectorAll('.tg-link').forEach(element => {
     element.href = CONFIG.telegram;
 });
-document.getElementById('gh-link').href = CONFIG.github;
-const emailLink = document.getElementById('email-link');
+document.getElementById('contact-github').href = CONFIG.github;
+document.getElementById('contact-github').querySelector('small').textContent = CONFIG.githubName; 
+
+const emailLink = document.getElementById('contact-email');
 emailLink.href = 'mailto:' + CONFIG.email;
+emailLink.querySelector('small').textContent = CONFIG.email;
+
+document.getElementById('contact-resume').href = CONFIG.hh;
+document.getElementById('contact-resume').querySelector('small').textContent = CONFIG.realMe;
 
 //document.getElementById('tg-link').textContent = CONFIG.telegramName;
 //document.getElementById('gh-link').textContent = CONFIG.githubName;
@@ -271,4 +279,56 @@ function highlightMongo(code) {
     }
   }
   run();
+})();
+
+// ========== Дополнение: мобильное меню и подсветка активной секции ==========
+(() => {
+  const nav = document.querySelector('.top-nav');
+  const toggle = document.getElementById('nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const opened = nav.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded', String(opened));
+    });
+    navLinks?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('nav-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  // Подсветка активного пункта меню при прокрутке
+  const sections = Array.from(document.querySelectorAll('section[id]'));
+  const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  if (sections.length && links.length) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = '#' + entry.target.id;
+          links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === id));
+        }
+      });
+    }, { threshold: 0.45 });
+    sections.forEach(sec => spy.observe(sec));
+  }
+
+  // Синхронизация контактов из CONFIG для второй контактной секции, если у ссылок не задан href
+  const extraContacts = {
+    'contact-email': 'mailto:' + CONFIG.email,
+    'contact-telegram': CONFIG.telegram,
+    'contact-github': CONFIG.github,
+  };
+  Object.entries(extraContacts).forEach(([id, url]) => {
+    const el = document.getElementById(id);
+    if (el && (!el.getAttribute('href') || el.getAttribute('href') === '#')) {
+      el.setAttribute('href', url);
+      if (!url.startsWith('mailto:')) {
+        el.setAttribute('target', '_blank');
+        el.setAttribute('rel', 'noopener');
+      }
+    }
+  });
 })();
