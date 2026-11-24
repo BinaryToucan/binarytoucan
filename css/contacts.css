@@ -10,7 +10,7 @@
 }
 
 .final-contacts-section .contact-panel::after {
-  content: "{ QA }";
+  content: "{ DEV }";
   position: absolute;
   right: 24px;
   top: 18px;
